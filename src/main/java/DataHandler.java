@@ -1,7 +1,47 @@
+import java.io.*;
+import java.util.ArrayList;
+
 /*! The class handles reading/writing data */
 public class DataHandler {
     public DataHandler() {
 
+    }
+
+  public ArrayList<Customer> readFile(String file,int skip) {
+        ArrayList<Customer> ret = new ArrayList<>();
+        File f = new File(file);
+
+            try {
+                FileReader fr = new FileReader(f);
+                BufferedReader br = new BufferedReader(fr);
+                String line;
+                int i = 0;
+
+                while((line = br.readLine() ) != null) {
+                    if(i < skip) {
+                        i++;
+                        continue;
+                    }
+                    i++;
+                    if(line.isEmpty() == true) {
+                        continue;
+                    }
+                    Customer c = this.parseStringToCustomer(line);
+
+                    if(c != null) {
+                        ret.add(c);
+                    }
+
+                }
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+                return ret;
+            }catch(IOException ex) {
+                ex.printStackTrace();
+                return ret;
+            }
+
+            return  ret;
     }
 
     public Customer parseStringToCustomer(String str) {
