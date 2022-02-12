@@ -15,4 +15,20 @@ public class Customer {
         this.years = years;
     }
 
+    public String name() {
+        return this.name;
+    }
+
+    public double total() {
+        return this.total;
+    }
+
+    public double interest() {
+        return this.interest;
+    }
+
+    public int years() {
+        return this.years;
+    }
+
 }
