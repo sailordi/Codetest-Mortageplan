@@ -13,4 +13,11 @@ public class MortageHandler {
             return ret;
     }
 
+    public double calculateFixedMonthlyPayment(double totalLoan,double intrest,int years) {
+        int time = 12*years;
+        double rate = (intrest/100.0)/12.0;
+
+        return totalLoan*((rate*this.exp(1+rate,time))/(this.exp(1+rate,time)-1) );
+    }
+
 }
