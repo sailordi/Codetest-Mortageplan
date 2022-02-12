@@ -15,6 +15,22 @@ public class Customer {
         this.years = years;
     }
 
+    public void setName(String d) {
+        this.name = d;
+    }
+
+    public void setTotal(double d) {
+        this.total = d;
+    }
+
+    public void setInterest(double d) {
+        this.interest = d;
+    }
+
+    public void setYears(int d) {
+        this.years = d;
+    }
+
     public String name() {
         return this.name;
     }
